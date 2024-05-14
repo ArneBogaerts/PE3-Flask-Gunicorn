@@ -1,0 +1,15 @@
+version: '3'
+services:
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/app
+      - sqlite_data:/app/app.db
+    environment:
+      FLASK_APP: crudapp.py
+      FLASK_ENV: development
+
+volumes:
+  sqlite_data:
